@@ -53,7 +53,7 @@ component zaehler_eigen
 signal clk10kHz_s : std_logic;
 signal clk1Hz_s : std_logic ; 
 constant enable_c : std_logic := '1';
-constant length_c : integer := 1;
+constant length_c : integer := 2;
 constant maxvalue_c : integer := 10;
 begin
 

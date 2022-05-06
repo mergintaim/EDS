@@ -1,0 +1,56 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri May  6 16:00:25 2022
+# Process ID: 10340
+# Current directory: D:/Privat/EDS/Projects/Labor/Labor2/Labor2.runs/synth_1
+# Command line: vivado.exe -log tb_Uhr.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_Uhr.tcl
+# Log file: D:/Privat/EDS/Projects/Labor/Labor2/Labor2.runs/synth_1/tb_Uhr.vds
+# Journal file: D:/Privat/EDS/Projects/Labor/Labor2/Labor2.runs/synth_1\vivado.jou
+# Running On: md3hhm5c, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 51341 MB
+#-----------------------------------------------------------
+source tb_Uhr.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1252.289 ; gain = 0.000
+Command: synth_design -top tb_Uhr -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10640
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1252.289 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'tb_Uhr' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:37]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:57]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:65]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:67]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:69]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:71]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:73]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:75]
+INFO: [Synth 8-3491] module 'Uhr' declared at 'D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd:27' bound to instance 'DUT' of component 'Uhr' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'Uhr' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd:35]
+INFO: [Synth 8-3491] module 'clock_divider_eigen' declared at 'D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd:34' bound to instance 'clock_divider' of component 'clock_divider_eigen' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'clock_divider_eigen' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd:42]
+	Parameter length bound to: 2 - type: integer 
+	Parameter maxvalue bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'zaehler_eigen' declared at 'D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/a_zaehler_eigen.vhd:26' bound to instance 'zaehler_10kHz' of component 'zaehler_eigen' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'zaehler_eigen' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/a_zaehler_eigen.vhd:37]
+	Parameter length bound to: 2 - type: integer 
+	Parameter maxvalue bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'zaehler_eigen' (1#1) [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/a_zaehler_eigen.vhd:37]
+ERROR: [Synth 8-549] port width mismatch for port 'Q': port width = 2, actual width = 3 [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd:47]
+ERROR: [Synth 8-285] failed synthesizing module 'clock_divider_eigen' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd:42]
+ERROR: [Synth 8-285] failed synthesizing module 'Uhr' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd:35]
+ERROR: [Synth 8-285] failed synthesizing module 'tb_Uhr' [D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd:37]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1252.289 ; gain = 0.000
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+13 Infos, 7 Warnings, 0 Critical Warnings and 5 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Fri May  6 16:01:04 2022...
