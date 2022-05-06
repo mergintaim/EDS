@@ -1,0 +1,17 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_bitaddierer_8_behav xil_defaultlib.tb_bitaddierer_8 -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.Volladierer [volladierer_default]
+Compiling architecture behavioral of entity xil_defaultlib.bitaddierer_8 [bitaddierer_8_default]
+Compiling architecture behavioral of entity xil_defaultlib.tb_bitaddierer_8
+Built simulation snapshot tb_bitaddierer_8_behav

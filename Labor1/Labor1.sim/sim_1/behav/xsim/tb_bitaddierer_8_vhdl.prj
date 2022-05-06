@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Labor1.srcs/sources_1/new/8_bitaddierer.vhd" \
+"../../../../Labor1.srcs/sources_1/new/Volladierer.vhd" \
+"../../../../Labor1.srcs/sources_1/new/volladdierer_proc.vhd" \
+"../../../../Labor1.srcs/sources_1/new/tb_bitaddierer_8.vhd" \
+
+# Do not sort compile order
+nosort
