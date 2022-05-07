@@ -28,6 +28,8 @@ entity Uhr is
   Port (clk : in std_logic;
   enable : in std_logic;
   reset : in std_logic ;
+  hours : in std_logic;
+  minutes : in std_logic;
   seg7_output : out std_logic_vector(7 downto 0);
   seg7_pos : out std_logic_vector(7 downto 0) );
 end Uhr;
@@ -39,6 +41,8 @@ component clockcounters
   Port (clk :in std_logic;
   reset : in std_logic;
   enable : in std_logic;
+  minutes : in std_logic;
+  hours : in std_logic;
   digit_0 : out std_logic_vector (3 downto 0);
   digit_1 : out std_logic_vector (3 downto 0);
   digit_2 : out std_logic_vector (3 downto 0);
@@ -91,7 +95,9 @@ uhrzaehler : clockcounters
 port map(clk => clk1Hz, reset => reset, enable => enable,
 digit_0 => sekunden, digit_1 => sekunden_10,
 digit_2 => minuten, digit_3 => minuten_10,
-digit_4 => stunden , digit_5 => stunden_10);
+digit_4 => stunden , digit_5 => stunden_10,
+minutes => minutes, hours => hours
+);
 
 segment7 : outsevenseg
 port map (clk => clk10kHz,

@@ -47,14 +47,15 @@ component zaehler_eigen
  Q : out std_logic_vector (length-1 downto 0);
  clk : in std_logic;
  reset : in std_logic;
- enable : in std_logic
+ enable : in std_logic;
+ increment : in std_logic
   );
   end component;
 signal clk10kHz_s : std_logic;
 signal clk1Hz_s : std_logic ; 
 constant enable_c : std_logic := '1';
 constant length_c : integer := 2;
-constant maxvalue_c : integer := 10;
+constant maxvalue_c : integer := 10000;
 begin
 
 zaehler_10kHz : zaehler_eigen 
@@ -64,7 +65,8 @@ port map(C_out => clk10kHz_s,
  Q => open,
  clk => clk_in,
  reset => reset,
- enable => enable_c);
+ enable => enable_c,
+ increment => '0');
  
 zaehler_1Hz : zaehler_eigen 
 generic map(length => length_c,
@@ -73,7 +75,8 @@ port map(C_out => clk1Hz_s,
  Q => open,
  clk => clk10kHz_s,
  reset => reset,
- enable => enable_c);
+ enable => enable_c,
+ increment => '0');
  
  clk10kHz <= clk10kHz_s;
  clk1Hz <= clk1Hz_s;

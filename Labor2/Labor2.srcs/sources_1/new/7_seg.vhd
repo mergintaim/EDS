@@ -50,9 +50,9 @@ begin
 if (clk'event and clk='1') then
 if (b=0) then Position<=x"fe"; Number_out<= Anzeige(conv_integer(Number_s)); end if;
 if (b=1) then Position<=x"fd"; Number_out<= Anzeige(conv_integer(Number_10s)); end if;
-if (b=2) then Position<=x"fb"; Number_out<= Anzeige(conv_integer(Number_m)); end if;
+if (b=2) then Position<=x"fb"; Number_out<= Anzeige(conv_integer(Number_m)) and "01111111"; end if;
 if (b=3) then Position<=x"f7"; Number_out<= Anzeige(conv_integer(Number_10m)); end if;
-if (b=4) then Position<=x"ef"; Number_out<= Anzeige(conv_integer(Number_h)); end if;
+if (b=4) then Position<=x"ef"; Number_out<= Anzeige(conv_integer(Number_h))and "01111111"; end if;
 if (b=5) then Position<=x"df"; Number_out<= Anzeige(conv_integer(Number_10h)); end if;
 if (b=6) then Position<=x"bf"; Number_out<= Anzeige(0); end if;
 if (b=7) then Position<=x"7f"; Number_out<= Anzeige(0); end if;

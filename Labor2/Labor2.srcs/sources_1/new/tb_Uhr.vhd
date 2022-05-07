@@ -40,7 +40,9 @@ component Uhr
   enable : in std_logic;
   reset : in std_logic ;
   seg7_output : out std_logic_vector(7 downto 0);
-  seg7_pos : out std_logic_vector(7 downto 0) );
+  seg7_pos : out std_logic_vector(7 downto 0);
+  hours : in std_logic;
+  minutes : in std_logic );
   end component;
 
 signal clk : std_logic := '0';
@@ -49,6 +51,8 @@ signal reset : std_logic := '0';
 signal seg7_output : std_logic_vector(7 downto 0);
 signal seg7_pos : std_logic_vector(7 downto 0);
 signal stop : boolean := false;
+signal hours : std_logic;
+signal minutes : std_logic;
 
 begin
 clkprocess : process
@@ -77,7 +81,15 @@ stop <= true;
 wait;
 end process;
 
+incrementer : process
+begin
+wait for 500 ns;
+hours <= '1';
+wait for 10 ns;
+hours <='0';
+wait;
+end process;
 
 DUT : Uhr
-port map(clk => clk, enable => enable, reset => reset, seg7_output => seg7_output, seg7_pos => seg7_pos);
+port map(clk => clk, enable => enable, reset => reset, seg7_output => seg7_output, seg7_pos => seg7_pos, hours => hours, minutes => minutes);
 end Behavioral;

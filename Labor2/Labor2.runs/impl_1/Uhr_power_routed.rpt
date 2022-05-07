@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date             : Sat May  7 14:33:51 2022
+| Date             : Sat May  7 16:18:27 2022
 | Host             : md3hhm5c running 64-bit major release  (build 9200)
 | Command          : report_power -file Uhr_power_routed.rpt -pb Uhr_power_summary_routed.pb -rpx Uhr_power_routed.rpx
 | Design           : Uhr
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.123        |
+| Total On-Chip Power (W)  | 0.128        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.026        |
+| Dynamic (W)              | 0.031        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.4         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |      979 |       --- |             --- |
-|   LUT as Logic |     0.002 |      425 |     63400 |            0.67 |
-|   CARRY4       |    <0.001 |       96 |     15850 |            0.61 |
-|   Register     |    <0.001 |      281 |    126800 |            0.22 |
+| Slice Logic    |     0.002 |      968 |       --- |             --- |
+|   LUT as Logic |     0.002 |      430 |     63400 |            0.68 |
+|   CARRY4       |    <0.001 |       97 |     15850 |            0.61 |
+|   Register     |    <0.001 |      282 |    126800 |            0.22 |
 |   BUFG         |    <0.001 |        7 |        32 |           21.88 |
 |   Others       |     0.000 |       13 |       --- |             --- |
-| Signals        |     0.001 |      430 |       --- |             --- |
-| I/O            |     0.022 |       19 |       210 |            9.05 |
+| Signals        |     0.001 |      432 |       --- |             --- |
+| I/O            |     0.026 |       19 |       210 |            9.05 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.123 |          |           |                 |
+| Total          |     0.128 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.020 |       0.005 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.011 |       0.007 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -138,12 +138,13 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------+-----------+
-| Name            | Power (W) |
-+-----------------+-----------+
-| Uhr             |     0.026 |
-|   clock_divider |     0.001 |
-|   uhrzaehler    |     0.002 |
-+-----------------+-----------+
++-------------------+-----------+
+| Name              | Power (W) |
++-------------------+-----------+
+| Uhr               |     0.031 |
+|   clock_divider   |     0.001 |
+|     zaehler_10kHz |     0.001 |
+|   uhrzaehler      |     0.003 |
++-------------------+-----------+
 
 
