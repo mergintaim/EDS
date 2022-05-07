@@ -134,7 +134,7 @@ port map(C_out => carrys_s(5),
  
  process (enable) --reset whole clock, reset is clicked
  begin
- if  enable'event and enable = '1' then 
+ if enable = '1' then 
     enable_S <= "111111";
  else 
     enable_S <= "000000";

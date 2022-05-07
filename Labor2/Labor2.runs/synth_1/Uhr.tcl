@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/Privat/EDS/Projects/Labor/Labor2/Labor2.runs/synth_1/tb_Uhr.tcl"
+  variable script "D:/Privat/EDS/Projects/Labor/Labor2/Labor2.runs/synth_1/Uhr.tcl"
   variable category "vivado_synth"
 }
 
@@ -87,11 +87,10 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/7_seg.vhd
-  D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd
   D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/a_zaehler_eigen.vhd
   D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd
   D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clockcounters.vhd
-  D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/tb_Uhr.vhd
+  D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -102,11 +101,16 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/constrs_1/new/Arty-A7-100-Master.xdc
+set_property used_in_implementation false [get_files D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/constrs_1/new/Arty-A7-100-Master.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/utils_1/imports/synth_1/tb_Uhr.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top tb_Uhr -part xc7a100tcsg324-1
+synth_design -top Uhr -part xc7a100tcsg324-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -116,10 +120,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef tb_Uhr.dcp
+write_checkpoint -force -noxdef Uhr.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file tb_Uhr_utilization_synth.rpt -pb tb_Uhr_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file Uhr_utilization_synth.rpt -pb Uhr_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

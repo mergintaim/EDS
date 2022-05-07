@@ -101,7 +101,7 @@ Number_s => sekunden,
  Number_10m => minuten_10,
  Number_h => stunden,
  Number_10h => stunden_10,
- Position => seg7_output,
+ Position => seg7_pos,
 Number_out => seg7_output );
 
 

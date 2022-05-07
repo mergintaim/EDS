@@ -1,2 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/Uhr.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Uhr'
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Privat/EDS/Projects/Labor/Labor2/Labor2.srcs/sources_1/new/clock_divider_eigen.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'clock_divider_eigen'

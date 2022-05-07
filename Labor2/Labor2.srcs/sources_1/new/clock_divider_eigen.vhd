@@ -41,10 +41,10 @@ end clock_divider_eigen;
 
 architecture Behavioral of clock_divider_eigen is
 component zaehler_eigen
- Generic (length : integer := 1;
- maxvalue : integer := 10);
+ Generic (length : integer := 2;
+ maxvalue : integer );
  Port (C_out : out std_logic;
- Q : out std_logic_vector (length downto 0);
+ Q : out std_logic_vector (length-1 downto 0);
  clk : in std_logic;
  reset : in std_logic;
  enable : in std_logic
