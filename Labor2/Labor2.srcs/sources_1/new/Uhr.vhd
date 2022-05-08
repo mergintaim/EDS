@@ -61,7 +61,8 @@ Number_h : in STD_LOGIC_VECTOR (3 downto 0);
 Number_10h : in STD_LOGIC_VECTOR (3 downto 0);
 Clk : in STD_LOGIC;
 Position : out STD_LOGIC_VECTOR (7 downto 0);
-Number_out : out STD_LOGIC_VECTOR (7 downto 0) );
+Number_out : out STD_LOGIC_VECTOR (7 downto 0);
+reset : in std_logic );
 end component;
 
 component clock_divider_eigen
@@ -108,7 +109,8 @@ Number_s => sekunden,
  Number_h => stunden,
  Number_10h => stunden_10,
  Position => seg7_pos,
-Number_out => seg7_output );
+Number_out => seg7_output,
+reset => reset );
 
 
 

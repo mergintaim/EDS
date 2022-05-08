@@ -132,13 +132,18 @@ port map(C_out => carrys_s(5),
  enable => enable_s(5),
  increment => '0');
  
- process (reset) --reset whole clock, reset is clicked
+ process (reset,carrys_s(5)) --reset whole clock, reset is clicked
  begin
  if reset = '1' then 
     reset_s <= "111111";
  else 
     reset_s <= "000000";
  end if;
+ -- if carrys_s(5) = '1' then 
+ --   reset_s <= "111111";
+-- else 
+--    reset_s <= "000000";
+ --end if;
  end process;
  
  process (enable) --reset whole clock, reset is clicked
@@ -160,6 +165,5 @@ port map(C_out => carrys_s(5),
 --end process;
 digit_5 <= digit_5_s;
 digit_4 <= digit_4_s;
-
 
 end Behavioral;

@@ -51,8 +51,8 @@ signal reset : std_logic := '0';
 signal seg7_output : std_logic_vector(7 downto 0);
 signal seg7_pos : std_logic_vector(7 downto 0);
 signal stop : boolean := false;
-signal hours : std_logic;
-signal minutes : std_logic;
+signal hours : std_logic := '0';
+signal minutes : std_logic := '0';
 
 begin
 clkprocess : process
@@ -83,7 +83,7 @@ end process;
 
 incrementer : process
 begin
-wait for 500 ns;
+wait for 506 ns;
 hours <= '1';
 wait for 10 ns;
 hours <='0';

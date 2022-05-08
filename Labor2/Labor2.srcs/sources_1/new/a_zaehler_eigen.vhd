@@ -38,27 +38,34 @@ end zaehler_eigen;
 architecture a_zaehler_eigen of zaehler_eigen is
 signal Q_out : std_logic_vector (length-1 downto 0);
 signal counter : integer;
+signal clock : std_logic;
+signal c_out_blocked : std_logic;
 begin
 
-process(clk,reset,enable,increment)
+process(clock,reset,enable)
 --variable maxvalue : integer := maxvalue;
 
 begin
-    if reset = '1' then
-        counter <= 0;
-        C_out <= '0';
-    elsif clk'event and clk = '1' and enable = '1' then 
-        
-        if counter > maxvalue-1 then
-            counter <=0;
-            C_out <= '1';
+    if clock'event and clock = '1' then
+        if reset = '1' then
+            counter <= 0;
+            C_out <= '0'; 
         else
-            counter <= counter +1;
-            C_out <= '0';
+            if  enable = '1' then       
+                if counter > maxvalue-1 then
+                    counter <=0;
+                    C_out <= '1';
+                    c_out_blocked <= '1';
+                else
+                    counter <= counter +1;
+                    C_out <= '0';
+                end if;
+            end if;
         end if;
     end if;
 
 end process;
+clock <= clk or increment;
 
 --incrementnter : process(increment)
 --begin
