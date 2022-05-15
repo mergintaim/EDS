@@ -46,11 +46,12 @@ process(clock,reset,enable)
 --variable maxvalue : integer := maxvalue;
 
 begin
-    if clock'event and clock = '1' then
-        if reset = '1' then
+    if reset = '1' then
             counter <= 0;
             C_out <= '0'; 
-        else
+            end if;
+    if clock'event and clock = '1' then
+
             if  enable = '1' then       
                 if counter > maxvalue-1 then
                     counter <=0;
@@ -62,7 +63,6 @@ begin
                 end if;
             end if;
         end if;
-    end if;
 
 end process;
 clock <= clk or increment;

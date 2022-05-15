@@ -28,6 +28,7 @@ entity Uhr is
   Port (clk : in std_logic;
   enable : in std_logic;
   reset : in std_logic ;
+  reset_out : out std_logic;
   hours : in std_logic;
   minutes : in std_logic;
   seg7_output : out std_logic_vector(7 downto 0);
@@ -74,6 +75,7 @@ end component;
 
 signal clk10kHz : std_logic;
 signal clk1Hz : std_logic;
+signal reset_s : std_logic;
 
 --Signale für einzelne Anzeigen
 signal sekunden : STD_LOGIC_VECTOR (3 downto 0);
@@ -112,6 +114,6 @@ Number_s => sekunden,
 Number_out => seg7_output,
 reset => reset );
 
-
+reset_out <= reset;
 
 end Behavioral;

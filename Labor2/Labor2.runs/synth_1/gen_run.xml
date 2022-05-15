@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1651960763" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/tb_Uhr.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1652365757" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/tb_Uhr.dcp">
   <File Type="PA-TCL" Name="Uhr.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Uhr_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Uhr_reports.tcl"/>
   <File Type="RDS-RDS" Name="Uhr.vds"/>
   <File Type="RDS-UTIL" Name="Uhr_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Uhr_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Uhr.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Uhr_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Uhr_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/7_seg.vhd">

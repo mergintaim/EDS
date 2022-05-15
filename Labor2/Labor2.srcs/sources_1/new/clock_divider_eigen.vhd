@@ -64,7 +64,7 @@ maxvalue => maxvalue_c)
 port map(C_out => clk10kHz_s,
  Q => open,
  clk => clk_in,
- reset => reset,
+ reset => '0',
  enable => enable_c,
  increment => '0');
  
@@ -74,7 +74,7 @@ maxvalue => maxvalue_c)
 port map(C_out => clk1Hz_s,
  Q => open,
  clk => clk10kHz_s,
- reset => reset,
+ reset => '0',
  enable => enable_c,
  increment => '0');
  

@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Sun May  8 00:03:24 2022
+| Date         : Thu May 12 16:31:29 2022
 | Host         : md3hhm5c running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Uhr_methodology_drc_routed.rpt -pb Uhr_methodology_drc_routed.pb -rpx Uhr_methodology_drc_routed.rpx
 | Design       : Uhr
@@ -23,15 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 294
-+-----------+------------------+-------------------------------+------------+
-| Rule      | Severity         | Description                   | Violations |
-+-----------+------------------+-------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 260        |
-| LUTAR-1   | Warning          | LUT drives async reset alert  | 22         |
-| TIMING-18 | Warning          | Missing input or output delay | 1          |
-| TIMING-20 | Warning          | Non-clocked latch             | 11         |
-+-----------+------------------+-------------------------------+------------+
+             Violations found: 293
++-----------+------------------+------------------------------+------------+
+| Rule      | Severity         | Description                  | Violations |
++-----------+------------------+------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell  | 260        |
+| LUTAR-1   | Warning          | LUT drives async reset alert | 22         |
+| TIMING-20 | Warning          | Non-clocked latch            | 11         |
++-----------+------------------+------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -1443,11 +1442,6 @@ Related violations: <none>
 LUTAR-1#22 Warning
 LUT drives async reset alert  
 LUT cell segment7/b_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) segment7/b_reg[2]_C/CLR, segment7/b_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-TIMING-18#1 Warning
-Missing input or output delay  
-An input delay is missing on reset relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-20#1 Warning
