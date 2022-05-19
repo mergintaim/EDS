@@ -35,23 +35,23 @@ entity coefficientmodules is
   Port (clk : in std_logic;
   input : in std_logic;
   k_in : in std_logic;
-  output : out std_logic;
+  output : out std_logic := '0';
   feedback_in : in std_logic;
   reset : in std_logic);
 end coefficientmodules;
 
 architecture Behavioral of coefficientmodules is
-signal after_xor : std_logic;
-signal after_and : std_logic;
+signal after_xor : std_logic := '0';
+signal after_and : std_logic := '0';
 
 
 
 begin
 after_and <= feedback_in and k_in;
 after_xor <= input XOR after_and;
-flipflop : process(after_xor)
+flipflop : process(clk)
 begin
-if rising_edge(after_xor) then
+if rising_edge(clk) then
     output <= after_xor;
     end if;
 end process;

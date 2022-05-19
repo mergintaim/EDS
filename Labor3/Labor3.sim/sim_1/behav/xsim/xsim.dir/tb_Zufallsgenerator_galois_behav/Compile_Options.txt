@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_Zufallsgenerator_galois_behav" "xil_defaultlib.tb_Zufallsgenerator_galois" -log "elaborate.log" 

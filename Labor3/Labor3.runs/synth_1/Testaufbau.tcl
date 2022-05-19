@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/Privat/EDS/Projects/Labor3/Labor3.runs/synth_1/Testaufbau.tcl"
+  variable script "D:/Privat/EDS/Projects/Labor/Labor3/Labor3.runs/synth_1/Testaufbau.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache C:/Users/z004cn0d/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-21120-md3hhm5c/incrSyn
+set_param synth.incrementalSynthesisCache D:/Privat/EDS/Projects/Labor/Labor3/.Xil/Vivado-16240-md3hhm5c/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -80,19 +80,21 @@ create_project -in_memory -part xc7a100tcsg324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Privat/EDS/Projects/Labor3/Labor3.cache/wt [current_project]
-set_property parent.project_path D:/Privat/EDS/Projects/Labor3/Labor3.xpr [current_project]
+set_property webtalk.parent_dir D:/Privat/EDS/Projects/Labor/Labor3/Labor3.cache/wt [current_project]
+set_property parent.project_path D:/Privat/EDS/Projects/Labor/Labor3/Labor3.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:nexys-a7-100t:part0:1.2 [current_project]
-set_property ip_output_repo d:/Privat/EDS/Projects/Labor3/Labor3.cache/ip [current_project]
+set_property ip_output_repo d:/Privat/EDS/Projects/Labor/Labor3/Labor3.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  {D:/Privat/EDS/Projects/Labor3/Labor3.srcs/sources_1/new/Zufallsgenerator Galois.vhd}
-  D:/Privat/EDS/Projects/Labor3/Labor3.srcs/sources_1/new/coefficientmodules.vhd
-  D:/Privat/EDS/Projects/Labor3/Labor3.srcs/sources_1/new/Testaufbau.vhd
+  D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/AND_eigen.vhd
+  D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/XOR.vhd
+  {D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/Zufallsgenerator Galois.vhd}
+  D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/coefficientmodules.vhd
+  D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/Testaufbau.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -104,6 +106,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental D:/Privat/EDS/Projects/Labor3/Labor3.srcs/utils_1/imports/synth_1/Testaufbau.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

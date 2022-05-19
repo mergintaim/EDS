@@ -32,15 +32,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Zufallsgenerator_galois is
-Generic(length : integer);
-Port ( clk:in std_logic; X_out : out std_logic_vector(length-1 downto 1);
-Ks_in : in std_logic_vector(length-1 downto 0));
+Generic(length : integer := 4);
+Port ( clk:in std_logic; X_out : out std_logic_vector(length downto 1);
+Ks_in : in std_logic_vector(length downto 0);
+start : in std_logic);
 end Zufallsgenerator_galois;
 
 architecture Behavioral of Zufallsgenerator_galois is
 signal after_and : std_logic;
-signal Xs : std_logic_vector(length-1 downto 1);
-signal feedback : std_logic;
+signal Xs : std_logic_vector(length downto 1);
+signal feedback : std_logic := '1';
 signal reset_s : std_logic_vector(length-1 downto 0);
 
 
@@ -54,14 +55,24 @@ component coefficientmodules
   end component;
 
 begin
-    feedback <= Xs(length-1) and Ks_in(length-1);
+    feedback <= Xs(length) and Ks_in(length);
     after_and <= feedback and Ks_in(0);
 
-    firstflip : process(clk)
-        begin
-        if rising_edge(clk) then Xs(1) <= after_and; end if; end process;
+  --  firstflip : process(clk)
+  --      begin
+  --      if rising_edge(clk) then Xs(1) <= after_and; end if; end process;
 
-    PRNG_GEN: for I in 2 to length-1 generate
+    PRNG_GEN: for I in 1 to length generate
+        PRNG_1 : if I = 1 generate
+        PRNG : coefficientmodules port map(clk => clk,
+        input => start,
+        k_in => Ks_in(I-1),
+        output => Xs(I),
+        feedback_in => feedback,
+        reset => reset_s(I-1)
+        );
+        end generate PRNG_1;
+        PRNG_2toX : if I > 1 generate
         PRNGs : coefficientmodules port map(clk => clk,
         input => Xs(I-1),
         k_in => Ks_in(I-1),
@@ -69,7 +80,8 @@ begin
         feedback_in => feedback,
         reset => reset_s(I-1)
         );
+        end generate PRNG_2toX;
     end generate;
-
+X_out <= Xs;
 
 end Behavioral;

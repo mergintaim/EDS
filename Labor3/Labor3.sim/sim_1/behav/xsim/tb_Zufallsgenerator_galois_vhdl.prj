@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Labor3.srcs/sources_1/new/Zufallsgenerator Galois.vhd" \
+"../../../../Labor3.srcs/sources_1/new/coefficientmodules.vhd" \
+"../../../../Labor3.srcs/sim_1/new/tb_Zufallsgenerator_galois.vhd" \
+
+# Do not sort compile order
+nosort
