@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_bitaddierer_8_behav/xsimk.exe -simmode gui -wdb tb_bitaddierer_8_behav.wdb -simrunnum 0 -socket 53493
+Running: xsim.dir/tb_bitaddierer_8_behav/xsimk.exe -simmode gui -wdb tb_bitaddierer_8_behav.wdb -simrunnum 0 -socket 60225
 Design successfully loaded
-Design Loading Memory Usage: 7144 KB (Peak: 7144 KB)
-Design Loading CPU Usage: 46 ms
+Design Loading Memory Usage: 7640 KB (Peak: 7640 KB)
+Design Loading CPU Usage: 30 ms
 Simulation completed
-Simulation Memory Usage: 7632 KB (Peak: 7632 KB)
-Simulation CPU Usage: 61 ms
+Simulation Memory Usage: 8128 KB (Peak: 8128 KB)
+Simulation CPU Usage: 30 ms

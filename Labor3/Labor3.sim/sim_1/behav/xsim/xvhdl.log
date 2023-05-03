@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sim_1/new/tb_Zufallsgenerator_galois.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_Zufallsgenerator_galois'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Privat/EDS/Projects/Labor/Labor3/Labor3.srcs/sources_1/new/coefficientmodules.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'coefficientmodules'

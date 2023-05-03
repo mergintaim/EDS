@@ -1,14 +1,15 @@
-
-*** Running vivado
-    with args -log Zufallsgenerator_galois.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Zufallsgenerator_galois.tcl
-
-
-
-****** Vivado v2021.2 (64-bit)
-  **** SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
-  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed May  3 14:16:32 2023
+# Process ID: 13692
+# Current directory: D:/Privat/EDS/Projects/Labor/Labor3/Labor3.runs/synth_1
+# Command line: vivado.exe -log Zufallsgenerator_galois.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Zufallsgenerator_galois.tcl
+# Log file: D:/Privat/EDS/Projects/Labor/Labor3/Labor3.runs/synth_1/Zufallsgenerator_galois.vds
+# Journal file: D:/Privat/EDS/Projects/Labor/Labor3/Labor3.runs/synth_1\vivado.jou
+# Running On: md3hhm5c, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 51336 MB
+#-----------------------------------------------------------
 source Zufallsgenerator_galois.tcl -notrace
 create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1253.508 ; gain = 0.000
 Command: read_checkpoint -auto_incremental -incremental D:/Privat/EDS/Projects/Labor3/Labor3.srcs/utils_1/imports/synth_1/Testaufbau.dcp

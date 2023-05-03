@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log Testaufbau.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Testaufbau.tcl" );
+         "-log Zufallsgenerator_galois.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Zufallsgenerator_galois.tcl" );
 
 
 

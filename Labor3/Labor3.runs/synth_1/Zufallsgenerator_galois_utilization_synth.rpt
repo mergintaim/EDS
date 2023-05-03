@@ -1,14 +1,14 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Wed May 18 20:31:57 2022
+| Date         : Wed May  3 14:17:14 2023
 | Host         : md3hhm5c running 64-bit major release  (build 9200)
-| Command      : report_utilization -file Testaufbau_utilization_synth.rpt -pb Testaufbau_utilization_synth.pb
-| Design       : Testaufbau
+| Command      : report_utilization -file Zufallsgenerator_galois_utilization_synth.rpt -pb Zufallsgenerator_galois_utilization_synth.pb
+| Design       : Zufallsgenerator_galois
 | Device       : xc7a100tcsg324-1
 | Speed File   : -1
 | Design State : Synthesized
----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |    0 |     0 |          0 |     63400 |  0.00 |
-|   LUT as Logic          |    0 |     0 |          0 |     63400 |  0.00 |
+| Slice LUTs*             |    4 |     0 |          0 |     63400 | <0.01 |
+|   LUT as Logic          |    4 |     0 |          0 |     63400 | <0.01 |
 |   LUT as Memory         |    0 |     0 |          0 |     19000 |  0.00 |
-| Slice Registers         |    0 |     0 |          0 |    126800 |  0.00 |
-|   Register as Flip Flop |    0 |     0 |          0 |    126800 |  0.00 |
+| Slice Registers         |    4 |     0 |          0 |    126800 | <0.01 |
+|   Register as Flip Flop |    4 |     0 |          0 |    126800 | <0.01 |
 |   Register as Latch     |    0 |     0 |          0 |    126800 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     31700 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     15850 |  0.00 |
@@ -58,7 +58,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 0     |          Yes |       Reset |            - |
+| 4     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    8 |     0 |          0 |       210 |  3.81 |
+| Bonded IOB                  |   11 |     0 |          0 |       210 |  5.24 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |          0 |         6 |  0.00 |
@@ -113,7 +113,7 @@ Table of Contents
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    0 |     0 |          0 |        32 |  0.00 |
+| BUFGCTRL   |    1 |     0 |          0 |        32 |  3.13 |
 | BUFIO      |    0 |     0 |          0 |        24 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |         6 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |          0 |         6 |  0.00 |
@@ -147,7 +147,11 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUFT    |    8 |                  IO |
+| IBUF     |    7 |                  IO |
+| OBUF     |    4 |                  IO |
+| LUT4     |    4 |                 LUT |
+| FDRE     |    4 |        Flop & Latch |
+| BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
 

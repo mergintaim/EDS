@@ -45,7 +45,6 @@ signal after_xor : std_logic := '0';
 signal after_and : std_logic := '0';
 
 
-
 begin
 after_and <= feedback_in and k_in;
 after_xor <= input XOR after_and;

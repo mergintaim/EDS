@@ -16,7 +16,7 @@ begin
             zaehler_s <= '0' & nachladewert;
         elsif (clk'event AND clk='1') then
             if(set = '1') then
-                zaehler_s <= '0' AND nachladewert;
+                zaehler_s <= '0' & nachladewert;
             elsif (enable = '1') then
                 zaehler_s <= zaehler_s + 1;
             end if;

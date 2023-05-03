@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Testaufbau.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Testaufbau.tcl
+EAStep vivado -log Zufallsgenerator_galois.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Zufallsgenerator_galois.tcl

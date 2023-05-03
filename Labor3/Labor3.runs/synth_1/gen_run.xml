@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1652898666" LaunchIncrCheckpoint="$PPRDIR/../../Labor3/Labor3.srcs/utils_1/imports/synth_1/Testaufbau.dcp">
-  <File Type="PA-TCL" Name="Testaufbau.tcl"/>
-  <File Type="REPORTS-TCL" Name="Testaufbau_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Testaufbau.vds"/>
-  <File Type="RDS-DCP" Name="Testaufbau.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1683116187" LaunchIncrCheckpoint="$PPRDIR/../../Labor3/Labor3.srcs/utils_1/imports/synth_1/Testaufbau.dcp">
+  <File Type="PA-TCL" Name="Zufallsgenerator_galois.tcl"/>
+  <File Type="REPORTS-TCL" Name="Zufallsgenerator_galois_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Zufallsgenerator_galois.vds"/>
+  <File Type="RDS-UTIL" Name="Zufallsgenerator_galois_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Zufallsgenerator_galois_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Zufallsgenerator_galois.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/AND_eigen.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/XOR.vhd">
+    <File Path="$PSRCDIR/sources_1/new/coefficientmodules.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -24,14 +20,23 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/coefficientmodules.vhd">
+    <File Path="$PSRCDIR/sources_1/new/AND_eigen.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/XOR.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/Testaufbau.vhd">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -45,7 +50,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Testaufbau"/>
+      <Option Name="TopModule" Val="Zufallsgenerator_galois"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
