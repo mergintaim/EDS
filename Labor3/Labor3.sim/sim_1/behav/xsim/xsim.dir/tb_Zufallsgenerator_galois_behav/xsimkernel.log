@@ -2,3 +2,6 @@ Running: xsim.dir/tb_Zufallsgenerator_galois_behav/xsimk.exe -simmode gui -wdb t
 Design successfully loaded
 Design Loading Memory Usage: 7628 KB (Peak: 7628 KB)
 Design Loading CPU Usage: 93 ms
+Simulation completed
+Simulation Memory Usage: 8116 KB (Peak: 8116 KB)
+Simulation CPU Usage: 109 ms
