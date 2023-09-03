@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl2008 xil_defaultlib  \
+"../../../../Labor_3_neu.srcs/sources_1/new/FlipFlop1.vhd" \
+"../../../../Labor_3_neu.srcs/sources_1/new/PZG_SGA.vhd" \
+"../../../../Labor_3_neu.srcs/sources_1/new/coefficientmodule.vhd" \
+"../../../../Labor_3_neu.srcs/sim_1/new/tb_GoldenDeviceTest.vhd" \
+
+# Do not sort compile order
+nosort

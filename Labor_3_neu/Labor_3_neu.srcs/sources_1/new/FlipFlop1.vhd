@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 18.05.2022 20:24:39
+-- Create Date: 02.09.2023 12:24:36
 -- Design Name: 
--- Module Name: AND_eigen - Behavioral
+-- Module Name: FlipFlop1 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -18,7 +18,6 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -31,15 +30,26 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity AND_eigen is
-  Port ( input : in std_logic_vector (4 downto 1);
-  output : out std_logic );
-end AND_eigen;
+entity FlipFlop1 is
+    Port(
+        o_Q          : out std_logic;
+        i_Clk        : in  std_logic;
+        i_sync_reset : in  std_logic;
+        i_D          : in  std_logic
+    );
+end FlipFlop1;
 
-
-architecture Behavioral of AND_eigen is
+architecture Behavioral of FlipFlop1 is
 
 begin
-output <= input (1) AND input (2) AND input (3) AND input (4);
+    process(i_Clk, i_sync_reset)
+    begin
+        if (i_sync_reset = '1') then
+            o_Q <= '0';
+        elsif (rising_edge(i_Clk)) then
+            o_Q <= i_D;
+        end if;
+    end process;
 
 end Behavioral;
+

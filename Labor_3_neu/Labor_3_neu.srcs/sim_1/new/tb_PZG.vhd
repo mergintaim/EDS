@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 18.05.2022 20:24:39
+-- Create Date: 02.09.2023 14:37:12
 -- Design Name: 
--- Module Name: AND_eigen - Behavioral
+-- Module Name: tb_PZG - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,15 +31,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity AND_eigen is
-  Port ( input : in std_logic_vector (4 downto 1);
-  output : out std_logic );
-end AND_eigen;
+entity tb_PZG is
+--  Port ( );
+end tb_PZG;
 
-
-architecture Behavioral of AND_eigen is
+architecture Behavioral of tb_PZG is
 
 begin
-output <= input (1) AND input (2) AND input (3) AND input (4);
+
 
 end Behavioral;
