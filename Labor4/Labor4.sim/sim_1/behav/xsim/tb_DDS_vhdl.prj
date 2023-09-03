@@ -1,9 +1,8 @@
 # compile vhdl design source files
 vhdl2008 xil_defaultlib  \
 "../../../../Labor4.srcs/sources_1/new/Counter.vhd" \
-
-vhdl xil_defaultlib  \
-"../../../../Labor4.srcs/sim_1/new/tb_Counter.vhd" \
+"../../../../Labor4.srcs/sources_1/new/DDS.vhd" \
+"../../../../Labor4.srcs/sim_1/new/tb_DDS.vhd" \
 
 # Do not sort compile order
 nosort
