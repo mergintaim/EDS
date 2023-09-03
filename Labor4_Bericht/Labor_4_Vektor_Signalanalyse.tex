@@ -1,0 +1,87 @@
+\documentclass[a4paper,11pt,DIV=11,parskip=half]{scrartcl}
+
+\include{Preambel.tex}
+\setcounter{secnumdepth}{4}									% how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}									% how many sectioning levels to show in ToC
+
+\begin{document}
+	\pagenumbering{roman}
+	\include{Deckblatt_Labor_4}
+	\tableofcontents
+	\newpage
+	\ihead{\headmark}
+	\automark{section}
+	%	\ofoot{}
+	%	\cfoot{}
+	\ofoot{\pagemark}
+	\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Vorbereitungsaufgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    Laboraufgaben    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theoretische Vorbereitung}
+Als Samplefrequenz soll $f_s$ = \SI{40}{kHz} und eine minimale Phasenschrittweite von \SI{1}{Hz}
+angenommen werden.
+
+\subsection{Funktionsweise einer DDS}
+Bei einer DDS wird mit Hilfe eines Zählers, einer Look Up Table und anschließender Digital -> Analog Wandlung ein beliebiges Signal mit einem einzigen Oszillator realisiert. \\
+Im Detail wird zunächst ein Zähler mit der maximal möglichen Auflösung und der minimalen Frequenz designed. Wenn dieser Modulozähler überläuft ist eine volle Periode des zu realisierenden Signals durchlaufen und der Zähler beginnt von vorne. \\
+Zu jedem Schritt des Zählers gibt es eine korrespondierende Eintragung in der LUT mit dem zu dieser Phase gehörenden Signalwert. Dieser Signalwert ist der Ausgang unserer DDS.
+\subsection{Nyquist-Shannon-Abtasttheorem}
+Ein Signal mit der Frequenz $f_{signal}$ kann genau dann aus äquidistanten Abtastpunkten rekonstruiert werden, wenn die Abtastfrequenz $f_{abtast}$ folgende Bedingung erfüllt ist: 
+\begin{equation}
+	f_{abtast} >  2 \cdot  f_{signal}
+\end{equation} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Bilder/Nyquist_Shannon_Skizze.png}
+	\caption{Skizze Nyquist Shannon Abtasttheorem}
+	\label{fig:Nyquist_Shannon}
+\end{figure}
+\subsection{Bestimmen der Wortbreite des Phasenakkumulators}
+Mit dem Phasenakkumulator soll bei einer minimalen Phasenschrittweite von \SI{1}{Hz} eine Spektrum zwischen \SI{1}{Hz} und \SI{10}{kHz} dargestellt werden. \\
+Dazu müssen wir bei der höchsten Frequenz die Einhaltung des Nyquist-Shannon-Abtasttheorems beachten. Hier ergibt sich eine minimale Anzahl an Abtastpunkten zu:
+\begin{equation}
+	\begin{aligned}
+	\SI{10}{kHz} \cdot 2 \text{ Punkte pro Periode } &\Rightarrow \text{ mind. } 20.000 \text{ Abtastpunkte bei \SI{1}{Hz}} \\
+	\Rightarrow  ld(20.000) = 14.2877123795 &\Rightarrow \text{Wortbreite} = \SI{15}{bit}
+	\end{aligned}
+\end{equation}
+\subsection{Phasenschritte}
+\begin{table}[H]
+	\centering
+	\resizebox{0.4\textwidth}{!}{%
+	\begin{tabular}{|l|l|}
+	\hline
+	Frequenz                          & Schrittweite  \\ \hline
+	\SI{0}{Hz}                                & 0 oder 32.768 \\ \hline
+	\SI{500}{Hz}   & 500           \\ \hline
+	\SI{941}{Hz}   & 941           \\ \hline
+	\SI{10000}{Hz} & 10000         \\ \hline
+	\end{tabular}%
+	}
+	\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Übersicht-Liste   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%					Vorbereitungsaufgaben					%%%%%%%%%%
+
+
+%%%%%%%%%%						Laboraufgaben						%%%%%%%%%%
+% Aufgabe_3_1			ist erledigt
+% Aufgabe_3_2			erledigt
+% Aufgabe_3_3_1			erledigt
+% Aufgabe_3_3_2			erledigt
+% Aufgabe_3_3_3			erledigt
+% Aufgabe_3_3_4			erledigt
+% Aufgabe_3_3_5			erledigt
+% Aufgabe_3_4_1			erledigt
+% Aufgabe_3_4_2			erledigt
+% Aufgabe_3_4_3			erledigt
+% Aufgabe_3_5_1			erledigt
+% Aufgabe_3_5_2			weiß ich nicht mehr
+% Aufgabe_3_5_3_a		fertig
+% Aufgabe_3_5_3_b		fertig
+% Aufgabe_3_5_3_c		fertig
+% Aufgabe_3_5_3_d		fertig
+% Aufgabe_3_5_3_e		fertig
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -5,6 +5,8 @@
 \usepackage{lmodern}								% deutsche Trennungsregeln usw
 %\usepackage{mathptmx}								% für Times New Roman
 \usepackage{eurosym}								% für Euro Zeichen
+\usepackage{csquotes}								%deutsche Quotes mit ff Zeile
+\MakeOuterQuote{"}
 
 %%%%%%%%%%%%%%%%%%%%%%% 	Seitenlayout	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage[onehalfspacing]{setspace}				% 1,5 Zeilenabstand
@@ -49,6 +51,8 @@
 \usepackage{color}									% Farben Paket für Zeichnungen
 \usepackage{graphicx}								% Bilder können inkludiert werden
 %\graphicspath{{E:/Studium/4_Semester}} 			% Pfad von dem Ordner von Bildern
+\usepackage{caption}
+\usepackage{subcaption}                             % multi captions
 
 %%%%%%%%%%%%%%%%%%%%%%% 	Zeichnungen		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{pgfplots}          						% Diagramme erstellen
@@ -58,7 +62,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%% 	Diagramme		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tikz,pgfplots}
-\usetikzlibrary{math, calc, automata, positioning, arrows, intersections, shapes.geometric}
+\usetikzlibrary{math, calc, automata, positioning, arrows, shapes.geometric}
 
 %\tikzset{
 %	->, % makes the edges directed
