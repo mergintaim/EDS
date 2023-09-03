@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%% Schrift und Sprache %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}							% Sprachregeln für Deutsch
+\usepackage[utf8]{inputenc}							% für Zeicheneingabe
+\usepackage[T1]{fontenc}							% für Umlaute
+\usepackage{lmodern}								% deutsche Trennungsregeln usw
+%\usepackage{mathptmx}								% für Times New Roman
+\usepackage{eurosym}								% für Euro Zeichen
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Seitenlayout	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[onehalfspacing]{setspace}				% 1,5 Zeilenabstand
+\usepackage{setspace}								% für Zeilenabstand
+\usepackage{scrlayer-scrpage}						% Für Kopf und Fußzeile
+\pagestyle{headings}								% Seitenstil festlegen (z.B. Kopfzeile)
+\clearpairofpagestyles								% Seitenstil löschen
+\usepackage{float}									% um floats festen Platz zuweisen zu können (mit H)
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Tabellen		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}								% Tabellenspalten verbinden
+\usepackage{multirow}								% Tabellenzeilen verbinden
+\usepackage{colortbl}								% Farben in Tabellen
+\usepackage{tabularx}								% für Tabellenbreite
+\usepackage{diagbox}								% für Schrägstriche in Tabellen
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Auflistung		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}								%
+\usepackage{enumitem}								% für Listen
+%\usepackage{outlines}								% Auflistung mit Stickpunkten (besser für Unterpunkte)
+
+%%%%%%%%%%%%%%%%%%%%%%%		Mathematik		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{siunitx}								% Si-Einheiten
+\DeclareSIUnit{\belmilliwatt}{Bm}					% für Einheit dBm
+\DeclareSIUnit{\dBm}{\deci\belmilliwatt}			% Einheit dBm
+\sisetup{locale=DE}									% für Komma statt Punkt bei Zahlen
+\usepackage{amsmath}								% Mathematik Umgebungen
+\usepackage{amssymb}								% Mathematische Symbole und Zeichen
+\usepackage{bm}										% Fette Schrift in Mathe Umgebung
+\usepackage{amstext}								% Text in Matheumgebung
+\usepackage{amsfonts}								% überflüssig, da in amssymb enthalten
+\usepackage{empheq}									% Boxen z.B. mit align
+\usepackage{mathtools}								% für senkrechtes "=" in newcommand
+\usepackage{accents}								% für Akzente in Mathe "entspricht" in newcommand
+
+%%%%%%%%%%%%%%%%%%%%%%%		Elektronik		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{trfsigns}								% Transformationszeichen (z.B. Laplace-Zeit)
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Grafiken		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}									% für Positionen von Bildern
+\usepackage{wrapfig}								% Grafiken können neben Text stehen
+\usepackage{color}									% Farben Paket für Zeichnungen
+\usepackage{graphicx}								% Bilder können inkludiert werden
+%\graphicspath{{E:/Studium/4_Semester}} 			% Pfad von dem Ordner von Bildern
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Zeichnungen		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pgfplots}          						% Diagramme erstellen
+\pgfplotsset{compat=1.16}       					% Compatibilitätsmodus
+
+\usepackage[siunitx,EFvoltages,european]{circuitikz}	% Schaltpläne
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Diagramme		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{math, calc, automata, positioning, arrows, intersections, shapes.geometric}
+
+%\tikzset{
+%	->, % makes the edges directed
+	%		>=stealth’, % makes the arrow heads bold
+	%	node distance=2.5cm, % specifies the minimum distance between two nodes. Change if necessary.
+	%	every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+	%	initial text=$reset$, % sets the text that appears on the start arrow
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%% 	KV-Diagramme	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{karnaugh}								% für KV-Diagramme
+\usepackage{karnaugh-map}							% für KV-Diagramme
+\usepackage{kvmap}									% für KV-Diagramme
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Codeeingabe		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{minted}									% für Codehighlighting (z.B. VHDL)
+
+%%%%%%%%%%%%%%%%%%%%%%% Quellenverzeichnis	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[style=science,backend=bibtex]{biblatex} % Für Quellenverzeichnis mit BibLatex
+%\usepackage{filecontents}							% für festlegen von Quellen in der Tex Datei
+%\addbibresource{NameDerDatei.bib}					% bindet die Quellen ein die vor documentclass 
+% angelegt wurden
+
+%%%%%%%%%%%%%%%%%%%%%%% 	für Befehle		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xparse}									% für \newcommand mit zwei optionalen Argumenten
+
+%%%%%%%%%%%%%%%%%%%%%%% 	neue Pakete		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%% 	eigene Befehle	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% 	Laplace Symbol	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\vlaplace}{\mbox{\setlength{\unitlength}{0.1em}		% legt das Laplace Symbol vertikal als Bild
+		\begin{picture}(20,10)									% an
+			\put(1,-5){\circle*{4}}								% Laplace Seite unten
+			\put(1,-3){\line(0,1){13}}
+			\put(1,11){\circle{4}}
+		\end{picture}							
+	}
+}
+\newcommand{\vLaplace}{\mbox{\setlength{\unitlength}{0.1em}		% legt das Laplace Symbol vertikal als Bild
+		\begin{picture}(20,10)									% an
+			\put(1,-5){\circle{4}}								% Laplace Seite oben
+			\put(1,-3){\line(0,1){13}}
+			\put(1,11){\circle*{4}}
+		\end{picture}							
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%% 	Subsection		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter													% um Probleme mit @ zu vermeiden (start)
+\newcommand*{\addsubsec}{\secdef\@addsubsec\@saddsubsec}		% legt Makro addsubsec an
+\newcommand*{\@addsubsec}{}										% schaut ob addsubsec noch nicht existiert
+\def\@addsubsec[#1]#2{\subsection*{#2}\addcontentsline{toc}{subsection}{#1}		% definiert addsubsec
+	%	\if@twoside\ifx\@mkboth\markboth\markright{#1}\fi\fi	% für wenn subsections im
+	% Header stehen sollen
+}
+% \newcommand*{\@saddsubsec}[1]{\subsection*{#1}\@mkboth{}{}}	% für wenn subsections im
+% Header stehen sollen
+\makeatother													% um Probleme mit @ zu vermeiden (ende)
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Subsubsection	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter													% um Probleme mit @ zu vermeiden (start)
+\newcommand*{\addsubsubsec}{\secdef\@addsubsubsec\@saddsubsubsec}		% legt Makro addsubsubsec an
+\newcommand*{\@addsubsubsec}{}									% schaut ob addsubsubsec noch nicht existiert
+\def\@addsubsubsec[#1]#2{\subsubsection*{#2}\addcontentsline{toc}{subsubsection}{#1}		
+	% definiert addsubsubsec
+	%	\if@twoside\ifx\@mkboth\markboth\markright{#1}\fi\fi	% für wenn subsections im
+	% Header stehen sollen
+}
+% \newcommand*{\@saddsubsec}[1]{\subsection*{#1}\@mkboth{}{}}	% für wenn subsections im
+% Header stehen sollen
+\makeatother													% um Probleme mit @ zu vermeiden (ende)
+
+%%%%%%%%%%%%%%%%%%%%%%% Paragraph mit Linebreak	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+%	{-2.5ex\@plus -1ex \@minus -.25ex}%
+%	{1.25ex \@plus .25ex}%
+%	{\normalfont\normalsize\bfseries}}
+%\makeatother
+
+\makeatletter													% um Probleme mit @ zu vermeiden (start)
+\newcommand*{\addparagraphsec}{\secdef\@addparagraphsec\@saddparagraphsec}		% legt Makro addsubsubsec an
+\newcommand*{\@addparagraphsec}{}								% schaut ob addsubsubsec noch nicht existiert
+\def\@addparagraphsec[#1]#2{\paragraph*{#2}\addcontentsline{toc}{paragraph}{#1}%\mbox{}\\\\		
+	% definiert addsubsubsec
+	%	\if@twoside\ifx\@mkboth\markboth\markright{#1}\fi\fi	% für wenn subsections im
+	% Header stehen sollen
+}
+% \newcommand*{\@saddsubsec}[1]{\subsection*{#1}\@mkboth{}{}}	% für wenn subsections im
+% Header stehen sollen
+\makeatother													% um Probleme mit @ zu vermeiden (ende)
+
+\makeatletter
+\newcommand*{\addparagraph}{\secdef\@addparagraph\@saddparagraph}
+\newcommand*{\@addparagraph}{}
+\def\@addparagraph[#1]#2{\addparagraphsec{#2}\mbox{}\\\\}
+%\newcommand{\addparagraph}[1]{\addparagraphsec{#1}\mbox{}\\}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%% 	Integral d		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\diff{\mathop{}\!\mathrm{d}}						% für das d beim Integral
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}					% für das d^(x) beim Integral
+
+%%%%%%%%%%%%%%%%%%%%%%% senkrechtes Gleich	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\newcommand{\equalover}[2]{\overset{\scriptstyle\underset{\mkern4mu\verteq}{#2}}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%% "Entspricht"-Zeichen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\eqvalent}[1]{\accentset{\wedge}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%% Tabular zweireihig  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+\NewDocumentCommand{\specialcell}{O{c} O{c} m m}{				% Zeilenumbruch in tabular-Umgebung
+	\begin{tabular}[#1]{#2} {#3} \\ {#4}\end{tabular}}			% 1. [] t,c oder b 2. [] l,c oder r
+%\newcommand{\specialcell}[4][c]{ 								% gleich wie oben, nur schlechter
+	%	\begin{tabular}[#1]{@{}#2@{}}#3 \\ #4\end{tabular}}			% 
+
+%%%%%%%%%%%%%%%%%%%%%%% 	neues Makro		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% 	Links			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[hidelinks]{hyperref}					% Für Links auf Abschnitte usw ([] versteckt die Links)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% 	Quellen			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{filecontents}{NameDerDatei.bib}
+%	@Book{NameDesFunktionsaufrufs,
+	%		keywords = {},
+	%		hyphenation = {},
+	%		author = {},
+	%		editor = {},
+	%		translator = {},
+	%		indextitle = {},
+	%		title ={},
+	%		shorttitle = {}}
+%
+%	@online{NameDesFunktionsaufrufs,
+	%		label = {},
+	%		title = {},
+	%		year = {},
+	%		url	= {},
+	%		urldate = {}}
+%\end{filecontents}
