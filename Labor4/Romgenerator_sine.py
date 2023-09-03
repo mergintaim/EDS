@@ -24,10 +24,10 @@ def yes_or_no(question):
 
 def main():
     #create sin values
-    x_elements = list(range(0,NUMBER_OF_DATAPOINTS,1))
-    x_elements_floats = [(element * 2 * m.pi)/NUMBER_OF_DATAPOINTS for element in x_elements]
+    x_elements = list(range(0,NUMBER_OF_DATAPOINTS-1,1))
+    x_elements_floats = [(element * 2 * m.pi)/(NUMBER_OF_DATAPOINTS-1) for element in x_elements]
     sine = np.sin(x_elements_floats)
-    sine_ints = [m.floor((element+1)*(NUMBER_OF_DATAPOINTS/2)) for element in sine]
+    sine_ints = [m.floor((element+1)*((NUMBER_OF_DATAPOINTS-1)/2)) for element in sine]
     #generate sine string
     sinestring = ",\n".join(map(str,sine_ints))
     ## Loop to fill file
