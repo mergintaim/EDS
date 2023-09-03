@@ -57,6 +57,7 @@ component Counter
     );
 end component Counter;
 
+
 begin
 
 cnt: Counter
@@ -72,3 +73,4 @@ cnt: Counter
     );
 
 end Behavioral;
+
