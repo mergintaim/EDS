@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun Sep  3 21:39:34 2023
+# Process ID: 40220
+# Current directory: D:/Privat/EDS/Projects/Labor/Labor4/Labor4.runs/blk_mem_gen_ROM_synth_1
+# Command line: vivado.exe -log blk_mem_gen_ROM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_gen_ROM.tcl
+# Log file: D:/Privat/EDS/Projects/Labor/Labor4/Labor4.runs/blk_mem_gen_ROM_synth_1/blk_mem_gen_ROM.vds
+# Journal file: D:/Privat/EDS/Projects/Labor/Labor4/Labor4.runs/blk_mem_gen_ROM_synth_1\vivado.jou
+# Running On: md3hhm5c, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 51336 MB
+#-----------------------------------------------------------
+source blk_mem_gen_ROM.tcl -notrace

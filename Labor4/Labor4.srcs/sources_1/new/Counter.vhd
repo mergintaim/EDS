@@ -40,14 +40,14 @@ entity Counter is
     Port(
         i_Clk       : in  std_logic;
         i_reset     : in  std_logic;
-        i_increment : in  std_logic_vector(0 to g_wordlength - 1);
-        o_output    : out std_logic_vector(0 to g_wordlength - 1)
+        i_increment : in  std_logic_vector(g_wordlength-1 downto 0);
+        o_output    : out std_logic_vector(g_wordlength-1 downto 0)
     );
 end Counter;
 
 architecture Behavioral of Counter is
-    signal r_countervalue : unsigned(0 to g_wordlength - 1);
-    signal r_increment    : unsigned(0 to g_wordlength - 1);
+    signal r_countervalue : unsigned(g_wordlength-1 downto 0);
+    signal r_increment    : unsigned(g_wordlength-1 downto 0);
 
 begin
 

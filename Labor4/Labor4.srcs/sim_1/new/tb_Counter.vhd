@@ -46,15 +46,15 @@ architecture Test of tb_Counter is
         port(
             i_Clk       : in  std_logic;
             i_reset     : in  std_logic;
-            i_increment : in  std_logic_vector(0 to g_wordlength - 1);
-            o_output    : out std_logic_vector(0 to g_wordlength - 1)
+            i_increment : in  std_logic_vector(g_wordlength-1 downto 0);
+            o_output    : out std_logic_vector(g_wordlength-1 downto 0)
         );
     end component Counter;
 
     signal i_Clk           : std_logic := '0';
     signal i_reset         : std_logic := '0';
-    signal i_sel_phasestep : std_logic_vector(0 to g_dimension_of_Vectors - 1);
-    signal o_phase_output  : std_logic_vector(0 to g_dimension_of_Vectors - 1);
+    signal i_sel_phasestep : std_logic_vector(g_dimension_of_Vectors-1 downto 0);
+    signal o_phase_output  : std_logic_vector(g_dimension_of_Vectors-1 downto 0);
 
     signal s_phasestep   : integer := 0;
     signal s_phaseoutput : integer;
