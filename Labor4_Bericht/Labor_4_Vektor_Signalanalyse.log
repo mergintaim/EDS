@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.9)  3 SEP 2023 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.9)  3 SEP 2023 17:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1296,7 +1296,7 @@ Overfull \hbox (10.95pt too wide) in paragraph at lines 28--9
 
 ]
 1: section
-<Bilder/Nyquist_Shannon_Skizze.png, id=33, 384.83775pt x 424.58624pt>
+<Bilder/Nyquist_Shannon_Skizze.png, id=35, 384.83775pt x 424.58624pt>
 File: Bilder/Nyquist_Shannon_Skizze.png Graphic file (type png)
 <use Bilder/Nyquist_Shannon_Skizze.png>
 Package pdftex.def Info: Bilder/Nyquist_Shannon_Skizze.png  used on input line 36.
@@ -1306,23 +1306,28 @@ Overfull \hbox (23.31041pt too wide) in paragraph at lines 41--43
 \T1/lmr/m/n/10.95 Dazu müs-sen wir bei der höchs-ten Fre-quenz die Ein-hal-tung des Nyquist-Shannon-Abtasttheorems
  []
 
-[2 <./Bilder/Nyquist_Shannon_Skizze.png>] (./Labor_4_Vektor_Signalanalyse.aux (./Deckblatt_Labor_4.aux))
+<Bilder/Testbench_phaseincrement.png, id=46, 976.8495pt x 370.38374pt>
+File: Bilder/Testbench_phaseincrement.png Graphic file (type png)
+<use Bilder/Testbench_phaseincrement.png>
+Package pdftex.def Info: Bilder/Testbench_phaseincrement.png  used on input line 67.
+(pdftex.def)             Requested size: 434.55125pt x 164.7609pt.
+[2 <./Bilder/Nyquist_Shannon_Skizze.png>] [3 <./Bilder/Testbench_phaseincrement.png>] (./Labor_4_Vektor_Signalanalyse.aux (./Deckblatt_Labor_4.aux))
 Package rerunfilecheck Info: File `Labor_4_Vektor_Signalanalyse.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 65191 strings out of 476024
- 1668944 string characters out of 5794017
+ 65203 strings out of 476024
+ 1669272 string characters out of 5794017
  2543752 words of memory out of 5000000
- 84762 multiletter control sequences out of 15000+600000
+ 84770 multiletter control sequences out of 15000+600000
  580263 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,19n,110p,10663b,992s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,19n,110p,10663b,994s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{d:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss17.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Labor_4_Vektor_Signalanalyse.pdf (4 pages, 614903 bytes).
+Output written on Labor_4_Vektor_Signalanalyse.pdf (5 pages, 673869 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,36 +34,37 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Counter is
     generic(
-        g_maxnumber : natural;
+        g_maxnumber  : natural;
         g_wordlength : natural
     );
     Port(
-        i_Clk : in std_logic;
-        i_reset : in std_logic;
-        i_increment : in std_logic_vector(0 to g_wordlength-1);
-        o_output : out std_logic_vector(0 to g_wordlength-1)
+        i_Clk       : in  std_logic;
+        i_reset     : in  std_logic;
+        i_increment : in  std_logic_vector(0 to g_wordlength - 1);
+        o_output    : out std_logic_vector(0 to g_wordlength - 1)
     );
 end Counter;
 
 architecture Behavioral of Counter is
-signal r_countervalue : unsigned (0 to g_wordlength-1);
-signal r_increment : unsigned (0 to g_wordlength-1);
+    signal r_countervalue : unsigned(0 to g_wordlength - 1);
+    signal r_increment    : unsigned(0 to g_wordlength - 1);
 
 begin
 
-    counter : process (i_Clk, i_reset) is
+    counter : process(i_Clk, i_reset) is
     begin
         if i_reset = '1' then
             r_countervalue <= (others => '0');
         elsif rising_edge(i_Clk) then
-            r_countervalue <= r_countervalue + r_increment;
-            if r_countervalue > (g_maxnumber-1) then
-                r_countervalue <= 0 + r_countervalue - (g_maxnumber-1);  
+            if r_countervalue + r_increment > (g_maxnumber - 1) then
+                r_countervalue <= 0 + r_countervalue + r_increment - g_maxnumber;
+            else
+                r_countervalue <= r_countervalue + r_increment;
             end if;
         end if;
     end process counter;
-    
+
     r_increment <= unsigned(i_increment);
-    o_output <= std_logic_vector(r_countervalue);
+    o_output    <= std_logic_vector(r_countervalue);
 
 end Behavioral;

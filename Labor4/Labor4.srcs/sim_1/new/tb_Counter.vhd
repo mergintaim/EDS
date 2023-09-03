@@ -63,7 +63,7 @@ begin
 
     cnt : Counter
         generic map(
-            g_maxnumber  => 32768,
+            g_maxnumber  => 15,
             g_wordlength => g_dimension_of_Vectors
         )
         port map(
@@ -75,8 +75,8 @@ begin
 
     s_phaseoutput   <= to_integer(unsigned(o_phase_output));
     i_sel_phasestep <= std_logic_vector(to_unsigned(s_phasestep, g_dimension_of_Vectors));
-    s_phasestep     <= 15;
+    s_phasestep     <= 1, 3 after 140 ns;
 
-    i_Clk   <= not i_Clk after 10 ns;
-    i_reset <= '1' after 2 ns, '0' after 3 ns;
+    i_Clk   <= not i_Clk after 5 ns;
+    i_reset <= '1' after 2 ns, '0' after 3 ns, '1' after 26 ns, '0' after 46 ns;
 end Test;

@@ -92,3 +92,8 @@
 !*.png
 !*.jpg
 !*.bib
+
+#########
+#Python Files
+#########
+!*.py
