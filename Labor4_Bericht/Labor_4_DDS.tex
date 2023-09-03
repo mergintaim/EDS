@@ -68,6 +68,12 @@ Dazu müssen wir bei der höchsten Frequenz die Einhaltung des Nyquist-Shannon-A
 	\caption{Testbench für Phasenakkumulator}
 	\label{fig:tb_Phaseaccu}
 \end{figure}
+
+\subsection{Welche Amplitudenauflösung ist sinnvoll?}
+Da wir eine 15-Bit Auflösung in der Phase und damit der Zeit haben ist es sinnvoll auch eine 15-Bit Auflösung in der Amplitude zu wählen. \\
+Würde man beispielsweise eine deutlich kleinere Amplitudenauflösung als die Zeitauflösung wählen so wäre bei einer kontinuierlichen Funktion, wie sie hier beim Sinus vorliegt nur wenig zusätzliche Informatino verfügbar da das Signal sehr genau in der Zeit immer wieder dem gleichen ungenauen Amplitudenwert zugeordnet werden würde.
+Einzig bei einer nicht kontinuierlichen Funktion wie z.B. einer Sägezahnspannung wäre es von Vorteil da man den Sprungpunkt besser eingrenzen könnte. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Übersicht-Liste   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%					Vorbereitungsaufgaben					%%%%%%%%%%
 
