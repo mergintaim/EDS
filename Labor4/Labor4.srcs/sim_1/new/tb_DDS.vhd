@@ -77,7 +77,7 @@ begin
 
     v_phasesstep <= 1 after 5 ns, 3 after 60 ns, 55 after 150 ns;
 
-    i_Clk <= not i_Clk after 1 ns;
+    i_Clk <= not i_Clk after 5 ns;
     i_reset <= '1' after 2 ns, '0' after 3 ns;
     i_sel_phasestep <= std_logic_vector(to_unsigned(arg => v_phasesstep, size => 15));
 
