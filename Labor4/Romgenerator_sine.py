@@ -34,7 +34,6 @@ def main():
     #generate sine string
     sinestring = ",\n".join(map(str,sine_ints))
     ## Loop to fill file
-    # TODO check for file exists and handle?
     try:
         romfile = open(FILENAME,"x")
     except Exception as e:
