@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -59,6 +59,7 @@ architecture Behavioral of tb_DDS is
     signal i_sel_phasestep : std_logic_vector(15-1 downto 0) := (others => '0');
     signal o_signal : std_logic_vector(15-1 downto 0) := (others => '0');
 
+    signal v_phasesstep : natural := 1;
 
 begin
     DDS_inst : component DDS
@@ -74,7 +75,10 @@ begin
             o_signal        => o_signal
         );
 
-        i_Clk <= not i_Clk after 1 ns;
-        i_reset <= '1' after 2 ns, '0' after 3 ns;
+    v_phasesstep <= 1 after 5 ns, 3 after 60 ns, 55 after 150 ns;
+
+    i_Clk <= not i_Clk after 1 ns;
+    i_reset <= '1' after 2 ns, '0' after 3 ns;
+    i_sel_phasestep <= std_logic_vector(to_unsigned(arg => v_phasesstep, size => 15));
 
 end Behavioral;
