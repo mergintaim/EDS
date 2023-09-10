@@ -35,7 +35,7 @@ def main():
         romfile = open(filename,"x")
     except Exception as e:
         overwrite = yes_or_no("Do you want to overwrite the old file? ")
-        if not overwrite: print("Dann halt nicht du Pisser!");return
+        if not overwrite: print("Dann halt nicht!");return
     romfile = open(filename,"w")
 
     romfile.write(INITSTRING + sinestring + ";")

@@ -75,6 +75,8 @@ Würde man beispielsweise eine deutlich kleinere Amplitudenauflösung als die Ze
 Einzig bei einer nicht kontinuierlichen Funktion wie z.B. einer Sägezahnspannung wäre es von Vorteil da man den Sprungpunkt besser eingrenzen könnte. 
 
 \section{Implementierung und Analyse}
+Hier das Pythonskript zum generieren der Werte.
+\inputminted{python3}{../Labor4/Romgenerator_sine.py}
 Für den Test wurde folgende Einstellung für den Phasesstep gesetzt: \\
 \mint{VHDL}|v_phasesstep <= 0 after 5 ns, 500 after 1 ms, 941 after 10 ms, 10000 after 15 ms;|
 \subsection{Verlauf \SI{0}{Hz}}
@@ -127,6 +129,7 @@ Die minimale Frequenz des Phasenakkumulators für die Sägezahnspannung hängt v
 Da eine symmetrische Amplitudenauflösung gewählt wurde muss im schnellsten Fall von \SI{10}{kHz} jeder Schritt der Amplitudenauflösung innerhalb einer Periode des Sägezahns durchlaufen werden.
 Damit benötigen wir 32768 Schritte innerhalb einer Halteperiode des Eingangssignals der PWM. Die Dauer der Halteperiode ist abhängig von der Aktualisierungsfrequenz der Referenzsignals \SI{40}{kHz}. \\ Um die oben gewählte symmetrische Amplitudenauflösung zu bekommen würde eine Frequenz von $(2^{15})^2$ benötigt was größer als die Taktfrequenz des Boards ist. Deshalb wird die Taktfrequenz des Boards als Antriebsfrequenz des Phasenakkumulators der PWM gewählt, wodurch sich die Amplitudenauflösung vom optimalen Wert verschlechtert. 
 Die neue Amplitudenauflösung beträgt: floor(32768/13) = 250 \\
+Zudem berechnen wir die Schrittweite die einzustellen ist indem wir die Gesamtzahl der abzudeckenden Vergleichswerte durch das Verhältnisses der Periodendauer der Abtastfrequenz zur gewählten Clock des Boards.
 \begin{align}
 	\frac{2^{15}\cdot \SI{40}{kHz}}{\SI{100}{MhH}} = 13.107
 \end{align}
@@ -141,6 +144,18 @@ Die neue Amplitudenauflösung beträgt: floor(32768/13) = 250 \\
 	\includegraphics[width=\textwidth]{Bilder/DDS_FULL_PWM2.png}
 	\caption{Gesamtverlauf mit PWM - Variante mit Sägezahnsignal}
 	\label{fig:tb_DDS_PWM2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/Signalgenerator_0.png}
+	\caption{Signalgenerator 0 Herz mit Übergang zu 500 Hz}
+	\label{fig:tb_DDS_PWM3}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/Signalgenerator_941_10000.png}
+	\caption{Signalgenerator \SI{941}{Hz} mit Übergang bis \SI{10}{kHz}}
+	\label{fig:tb_DDS_PWM4}
 \end{figure}
 
 
