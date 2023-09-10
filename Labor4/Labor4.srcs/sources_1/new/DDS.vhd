@@ -82,7 +82,7 @@ architecture Behavioral of DDS is
     signal w_transfer_counter_LUT : std_logic_vector(g_wordlength - 1 downto 0);
 
     constant c_CNT_40KHZ : natural := 1250;
-    constant c_CNT_PHASEAKKU : natural := 1526;
+    constant c_CNT_PHASEAKKU : natural := 1526; --100Mhz/2^15 steps div by 2 for on off
 
     constant c_CNT_100HZ : natural := 500000;
     constant c_CNT_50HZ  : natural := 1000000;

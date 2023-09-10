@@ -126,7 +126,23 @@ Ein Schmitt Trigger kann zur Realisierung einer PDM mit analogen Bauteilen gewä
 Die minimale Frequenz des Phasenakkumulators für die Sägezahnspannung hängt von der gewählten Amplitudenauflösung und der maximalen Signalfrequenz ab. \\
 Da eine symmetrische Amplitudenauflösung gewählt wurde muss im schnellsten Fall von \SI{10}{kHz} jeder Schritt der Amplitudenauflösung innerhalb einer Periode des Sägezahns durchlaufen werden.
 Damit benötigen wir 32768 Schritte innerhalb einer Halteperiode des Eingangssignals der PWM. Die Dauer der Halteperiode ist abhängig von der Aktualisierungsfrequenz der Referenzsignals \SI{40}{kHz}. \\ Um die oben gewählte symmetrische Amplitudenauflösung zu bekommen würde eine Frequenz von $(2^{15})^2$ benötigt was größer als die Taktfrequenz des Boards ist. Deshalb wird die Taktfrequenz des Boards als Antriebsfrequenz des Phasenakkumulators der PWM gewählt, wodurch sich die Amplitudenauflösung vom optimalen Wert verschlechtert. 
-Die neue Amplitudenauflösung beträgt: 
+Die neue Amplitudenauflösung beträgt: floor(32768/13) = 250 \\
+\begin{align}
+	\frac{2^{15}\cdot \SI{40}{kHz}}{\SI{100}{MhH}} = 13.107
+\end{align}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_FULL_PWM.png}
+	\caption{Gesamtverlauf mit PWM}
+	\label{fig:tb_DDS_PWM}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_FULL_PWM2.png}
+	\caption{Gesamtverlauf mit PWM - Variante mit Sägezahnsignal}
+	\label{fig:tb_DDS_PWM2}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Übersicht-Liste   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%					Vorbereitungsaufgaben					%%%%%%%%%%

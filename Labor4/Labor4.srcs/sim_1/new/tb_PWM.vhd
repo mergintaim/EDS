@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 03.09.2023 23:04:32
+-- Create Date: 10.09.2023 17:30:24
 -- Design Name: 
--- Module Name: tb_DDS - Behavioral
+-- Module Name: tb_PWM - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -30,14 +30,27 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity tb_DDS is
-    generic(
-        g_wordlength : natural := 15
-    );
+entity tb_PWM is
+    generic(g_wordlength : natural := 15);
     --  Port ( );
-end tb_DDS;
+end tb_PWM;
 
-architecture Behavioral of tb_DDS is
+architecture Behavioral of tb_PWM is
+
+    component PWM
+        generic(
+            g_CNT_SAWTOOTHMAX : natural := 0;
+            g_maxnumber       : natural := 32500;
+            g_wordlength      : natural := 15
+        );
+        port(
+            i_CLK            : in  std_logic;
+            i_reset          : in  std_logic;
+            i_increment      : in  std_logic_vector(g_wordlength - 1 downto 0);
+            i_compare_signal : in  std_logic_vector(g_wordlength - 1 downto 0);
+            o_output         : out std_logic
+        );
+    end component PWM;
 
     component DDS
         generic(
@@ -56,11 +69,14 @@ architecture Behavioral of tb_DDS is
     signal i_Clk           : std_logic                         := '0';
     signal i_reset         : std_logic                         := '0';
     signal i_sel_phasestep : std_logic_vector(15 - 1 downto 0) := (others => '0');
-    signal o_signal        : std_logic_vector(15 - 1 downto 0) := (others => '0');
+    signal w_signal_dds    : std_logic_vector(15 - 1 downto 0) := (others => '0');
 
     signal v_phasesstep : natural := 1;
 
+    signal w_output : std_logic;
+
 begin
+
     DDS_inst : component DDS
         generic map(
             g_wordlength           => 15,
@@ -71,13 +87,27 @@ begin
             i_Clk           => i_Clk,
             i_reset         => i_reset,
             i_sel_phasestep => i_sel_phasestep,
-            o_signal        => o_signal
+            o_signal        => w_signal_dds
         );
 
-    v_phasesstep <= 0 after 5 ns, 500 after 1 ms, 941 after 10 ms, 10000 after 15 ms;
+    PWM_inst : component PWM
+        generic map(
+            g_CNT_SAWTOOTHMAX => 1,
+            g_maxnumber       => 32768,
+            g_wordlength      => g_wordlength
+        )
+        port map(
+            i_CLK            => i_Clk,
+            i_reset          => i_reset,
+            i_increment      => std_logic_vector(to_unsigned(arg => 13, size => 15)),
+            i_compare_signal => w_signal_dds,
+            o_output         => w_output
+        );
 
-    i_Clk           <= not i_Clk after 5 ns;
-    i_reset         <= '1' after 2 ns, '0' after 3 ns;
+    i_Clk   <= not i_Clk after 5 ns;
+    i_reset <= '1' after 2 ns, '0' after 3 ns;
+
+    v_phasesstep    <= 0 after 5 ns, 500 after 1 ms, 941 after 10 ms, 10000 after 15 ms;
     i_sel_phasestep <= std_logic_vector(to_unsigned(arg => v_phasesstep, size => 15));
 
 end Behavioral;
