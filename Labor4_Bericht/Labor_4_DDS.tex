@@ -70,9 +70,63 @@ Dazu müssen wir bei der höchsten Frequenz die Einhaltung des Nyquist-Shannon-A
 \end{figure}
 
 \subsection{Welche Amplitudenauflösung ist sinnvoll?}
-Da wir eine 15-Bit Auflösung in der Phase und damit der Zeit haben ist es sinnvoll auch eine 15-Bit Auflösung in der Amplitude zu wählen. \\
+Da eine 15-Bit Auflösung in der Phase und damit auch der Zeit gewählt wurde ist es sinnvoll auch eine 15-Bit Auflösung in der Amplitude zu wählen. \\
 Würde man beispielsweise eine deutlich kleinere Amplitudenauflösung als die Zeitauflösung wählen so wäre bei einer kontinuierlichen Funktion, wie sie hier beim Sinus vorliegt nur wenig zusätzliche Informatino verfügbar da das Signal sehr genau in der Zeit immer wieder dem gleichen ungenauen Amplitudenwert zugeordnet werden würde.
 Einzig bei einer nicht kontinuierlichen Funktion wie z.B. einer Sägezahnspannung wäre es von Vorteil da man den Sprungpunkt besser eingrenzen könnte. 
+
+\section{Implementierung und Analyse}
+Für den Test wurde folgende Einstellung für den Phasesstep gesetzt: \\
+\mint{VHDL}|v_phasesstep <= 0 after 5 ns, 500 after 1 ms, 941 after 10 ms, 10000 after 15 ms;|
+\subsection{Verlauf \SI{0}{Hz}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_0Hz.png}
+	\caption{Verlauf \SI{0}{Hz}}
+	\label{fig:tb_0Hz}
+\end{figure}
+\subsection{Verlauf \SI{500}{Hz}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_500Hz.png}
+	\caption{Verlauf \SI{500}{Hz}}
+	\label{fig:tb_500Hz}
+\end{figure}
+\subsection{Verlauf \SI{941}{Hz}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_941Hz.png}
+	\caption{Verlauf \SI{941}{Hz}}
+	\label{fig:tb_941Hz}
+\end{figure}
+\subsection{Verlauf \SI{10000}{Hz}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_10000Hz.png}
+	\caption{Verlauf \SI{10000}{Hz}}
+	\label{fig:tb_10000Hz}
+\end{figure}
+\subsection{Gesamtverlauf \SI{10000}{Hz}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/DDS_gesamt.png}
+	\caption{Gesamtverlauf}
+	\label{fig:tb_DDS_alles}
+\end{figure}
+\paragraph*{Welche Besonderheiten treten bei \SI{0}{Hz} und \SI{941}{Hz} auf?}
+Bei \SI{0}{Hz} wird konstant der selbe Wert gepusht. Bei \SI{941}{Hz} gibt es keine Besonderheit.
+\section{PWM Vorbereitungsaufgaben}
+\subsection{Funktionsweise PDM}
+Eine PDM (Pulsdauermodulation) arbeitet mit einem festen Maximalwert für den Pegel des Signals und einer an die Periodendauer angepassten Ein- bzw. Auschaltzeit. Bei voller Aussteuerung wird über die ganze Periode das Ausgangssigal ausgegeben, dies entspricht einer Einstellung von 100 \%. 
+Wenn ein geringer Signalwert ausgegeben werden soll ist die Einschaltzeit ensprechend ein gerignerer Teil der Periodendauer. \\
+Im vorliegenden Fall wird die Dauer der Einschaltzeit mittels eines Vergleichs des auszugebenden Signals und einem Sägezahnsignal ermittelt. Wenn der Wert des Referenzsignals geringer als der Wert der Sägezahnspannung ist wird kein Ausgangssignal gegeben, wenn der Wert des Eingangssignals größer als der des Sägezahnsignals ist wird der Maximalwert ausgegeben. \\
+Im Anschluss wird das Digitale Ausgangssignal mit einem Tiefpass "interpoliert".
+\subsection{Analoge Realisierung einer PDM}
+Ein Schmitt Trigger kann zur Realisierung einer PDM mit analogen Bauteilen gewählt werden.
+\subsection{Frequenz für Phasenakkumulator}
+Die minimale Frequenz des Phasenakkumulators für die Sägezahnspannung hängt von der gewählten Amplitudenauflösung und der maximalen Signalfrequenz ab. \\
+Da eine symmetrische Amplitudenauflösung gewählt wurde muss im schnellsten Fall von \SI{10}{kHz} jeder Schritt der Amplitudenauflösung innerhalb einer Periode des Sägezahns durchlaufen werden.
+Damit benötigen wir 32768 Schritte innerhalb einer Halteperiode des Eingangssignals der PWM. Die Dauer der Halteperiode ist abhängig von der Aktualisierungsfrequenz der Referenzsignals \SI{40}{kHz}. \\ Um die oben gewählte symmetrische Amplitudenauflösung zu bekommen würde eine Frequenz von $(2^{15})^2$ benötigt was größer als die Taktfrequenz des Boards ist. Deshalb wird die Taktfrequenz des Boards als Antriebsfrequenz des Phasenakkumulators der PWM gewählt, wodurch sich die Amplitudenauflösung vom optimalen Wert verschlechtert. 
+Die neue Amplitudenauflösung beträgt: 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Übersicht-Liste   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%					Vorbereitungsaufgaben					%%%%%%%%%%
